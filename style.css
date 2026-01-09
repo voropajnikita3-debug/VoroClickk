@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 40px;
+}
+
+#score {
+  font-size: 48px;
+  margin: 30px 0;
+}
+
+button {
+  font-size: 32px;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 15px;
+  background: #ff3b3b;
+  color: white;
+}

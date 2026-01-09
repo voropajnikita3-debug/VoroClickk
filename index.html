@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ff3b3b">
+<head>
+  <meta charset="UTF-8">
+  <title>VoroClick</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>🔥 VoroClick</h1>
+<p>Тапай и набирай очки</p>
+
+<div id="score">0</div>
+
+<button id="clickBtn">TAP</button>
+
+<script src="script.js"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
+
+</body>
+</html>
