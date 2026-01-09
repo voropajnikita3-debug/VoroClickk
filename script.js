@@ -13,7 +13,7 @@ const shopBtn = document.getElementById("shopBtn");
 const closeShop = document.getElementById("closeShop");
 const styleBtns = document.querySelectorAll(".styleBtn");
 
-// Функция обновления отображения
+// Обновление отображения
 function updateDisplay() {
   scoreEl.textContent = score + " 💰";
   recordEl.textContent = "🏆 Рекорд: " + record;
@@ -22,8 +22,14 @@ function updateDisplay() {
 // Начальное отображение
 updateDisplay();
 
+// Изначально магазин скрыт
+shop.classList.add("hidden");
+
 // Клик по кнопке TAP
 btn.addEventListener("click", () => {
+  // Если магазин открыт, клики не учитываем
+  if (!shop.classList.contains("hidden")) return;
+
   score++;
   if (score > record) record = score;
 
@@ -40,18 +46,17 @@ btn.addEventListener("click", () => {
     document.body.style.background = `hsl(${Math.random()*360}, 50%, 10%)`;
   }
 
-  // сохраняем
   localStorage.setItem("score", score);
   localStorage.setItem("record", record);
   updateDisplay();
 });
 
-// ПОКАЗАТЬ магазин
+// Открыть магазин
 shopBtn.addEventListener("click", () => {
   shop.classList.remove("hidden");
 });
 
-// ЗАКРЫТЬ магазин
+// Закрыть магазин
 closeShop.addEventListener("click", () => {
   shop.classList.add("hidden");
 });
@@ -67,8 +72,9 @@ function purchaseEffect(button) {
   sparkle.textContent = "✨";
   sparkle.style.position = "absolute";
   sparkle.style.fontSize = "24px";
-  sparkle.style.top = (button.offsetTop - 20) + "px";
-  sparkle.style.left = (button.offsetLeft + Math.random()*button.offsetWidth) + "px";
+  const rect = button.getBoundingClientRect();
+  sparkle.style.top = rect.top - 20 + window.scrollY + "px";
+  sparkle.style.left = rect.left + Math.random() * rect.width + window.scrollX + "px";
   document.body.appendChild(sparkle);
   setTimeout(() => { sparkle.remove(); }, 800);
 }
@@ -82,7 +88,7 @@ styleBtns.forEach(button => {
     if (score >= price) {
       score -= price;
 
-      // Применяем стиль
+      // применяем стиль
       switch(style){
         case "bronze":
           btn.style.background = "#cd7f32";
@@ -104,7 +110,7 @@ styleBtns.forEach(button => {
       // визуальные эффекты
       purchaseEffect(btn);
 
-      // Закрываем магазин после покупки
+      // закрываем магазин после покупки
       shop.classList.add("hidden");
 
     } else {
@@ -117,6 +123,3 @@ styleBtns.forEach(button => {
     updateDisplay();
   });
 });
-
-// Изначально магазин скрыт
-shop.classList.add("hidden");
