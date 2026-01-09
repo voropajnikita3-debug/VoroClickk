@@ -1,76 +1,58 @@
 body {
-  margin: 0;
-  padding: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #000000, #1a1a1a);
+  background: #111;
   color: white;
   text-align: center;
-  transition: background 0.5s;
-  position: relative;
+  margin: 0;
+  padding: 20px;
 }
 
-h1 {
-  margin-top: 40px;
-}
-
-/* Рекорд сверху справа */
-#record {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 20px;
-  color: #ffd700;
-}
-
-#score {
-  font-size: 48px;
-  margin: 20px 0;
-}
-
-button {
-  font-size: 32px;
-  padding: 20px 40px;
-  border: none;
-  border-radius: 15px;
-  background: #ff3b3b;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.1s, background 0.2s;
+#clickBtn, #shopBtn, .styleBtn {
+  padding: 15px 25px;
   margin: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-button:active {
-  transform: scale(1.1);
-  background: #ff6969;
-}
+#clickBtn { background: #555; color: white; }
+#shopBtn { background: #888; color: white; }
 
-#bonus {
-  font-size: 24px;
-  color: #00ff00;
-  margin-top: 20px;
-}
+#bonus { margin-top: 10px; font-size: 20px; color: yellow; }
 
 /* Магазин */
 #shop {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #222;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 0 20px #000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.hidden {
   display: none;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  z-index: 1000;
 }
 
-.styleBtn {
-  margin: 10px 0;
-  width: 250px;
-  font-size: 24px;
+#shop h2 { margin-top: 0; }
+
+#closeShop {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+html, body {
+  touch-action: manipulation; /* предотвращает двойной тап зум */
+  -webkit-touch-callout: none; /* убирает контекстное меню при долгом тапе */
+  -webkit-tap-highlight-color: transparent; /* убирает подсветку кнопки при тапе */
 }

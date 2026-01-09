@@ -2,41 +2,31 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>VoroClick</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VoroClick</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#ff3b3b">
 </head>
 <body>
+  <div id="game-container">
+    <div id="score">0 💰</div>
+    <div id="record">🏆 Рекорд: 0</div>
+    
+    <button id="clickBtn">TAP</button>
+    <button id="shopBtn">🏪 Магазин</button>
 
-<h1>🔥 VoroClick</h1>
+    <div id="bonus"></div>
 
-<!-- Рекорд сверху справа -->
-<div id="record">🏆 Рекорд: 0</div>
+    <!-- Магазин -->
+    <div id="shop">
+      <button id="closeShop">✖</button>
+      <h2>Магазин стилей</h2>
+      <button class="styleBtn" data-style="bronze" data-price="50">Бронзовый - 50💰</button>
+      <button class="styleBtn" data-style="gold" data-price="100">Золотой - 100💰</button>
+      <button class="styleBtn" data-style="diamond" data-price="250">Алмазный - 250💰</button>
+    </div>
+  </div>
 
-<!-- Счётчик монеток -->
-<div id="score">0 💰</div>
-
-<button id="clickBtn">TAP</button>
-<button id="shopBtn">🏪 Магазин</button>
-
-<!-- Магазин -->
-<div id="shop" class="hidden">
-  <h2>Магазин стилей</h2>
-  <button class="styleBtn" data-style="bronze" data-price="50">🥉 Бронзовый (50 💰)</button>
-  <button class="styleBtn" data-style="gold" data-price="100">🥇 Золотой (100 💰)</button>
-  <button class="styleBtn" data-style="diamond" data-price="250">💎 Алмазный (250 💰)</button>
-  <button id="closeShop">Закрыть</button>
-</div>
-
-<p id="bonus"></p>
-
-<script src="script.js"></script>
-<script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js");
-}
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
