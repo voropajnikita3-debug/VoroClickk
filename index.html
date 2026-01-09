@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#ff3b3b">
 <head>
   <meta charset="UTF-8">
   <title>VoroClick</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ff3b3b">
 </head>
 <body>
 
@@ -14,16 +15,27 @@
 <p>Тапай и набирай очки</p>
 
 <div id="score">0</div>
-
 <button id="clickBtn">TAP</button>
 
-<script src="script.js"></script>
+<!-- Кнопка Магазин -->
+<button id="shopBtn">🏪 Магазин</button>
 
+<!-- Окно магазина -->
+<div id="shop" class="hidden">
+  <h2>Магазин стилей</h2>
+  <button class="styleBtn" data-style="bronze">🥉 Бронзовый</button>
+  <button class="styleBtn" data-style="gold">🥇 Золотой</button>
+  <button class="styleBtn" data-style="diamond">💎 Алмазный</button>
+  <button id="closeShop">Закрыть</button>
+</div>
+
+<p id="bonus"></p>
+
+<script src="script.js"></script>
 <script>
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("sw.js");
 }
 </script>
-
 </body>
 </html>
