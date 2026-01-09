@@ -39,3 +39,45 @@ if ("serviceWorker" in navigator) {
 </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>VoroClick</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ff3b3b">
+</head>
+<body>
+
+<h1>🔥 VoroClick</h1>
+
+<!-- Рекорд сверху справа -->
+<div id="record">🏆 Рекорд: 0</div>
+
+<!-- Счётчик монеток -->
+<div id="score">0 💰</div>
+
+<button id="clickBtn">TAP</button>
+<button id="shopBtn">🏪 Магазин</button>
+
+<!-- Магазин -->
+<div id="shop" class="hidden">
+  <h2>Магазин стилей</h2>
+  <button class="styleBtn" data-style="bronze" data-price="50">🥉 Бронзовый (50 💰)</button>
+  <button class="styleBtn" data-style="gold" data-price="100">🥇 Золотой (100 💰)</button>
+  <button class="styleBtn" data-style="diamond" data-price="250">💎 Алмазный (250 💰)</button>
+  <button id="closeShop">Закрыть</button>
+</div>
+
+<p id="bonus"></p>
+
+<script src="script.js"></script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
+</body>
+</html>
