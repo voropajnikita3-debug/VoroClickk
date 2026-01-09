@@ -22,13 +22,12 @@ function updateDisplay() {
 // Начальное отображение
 updateDisplay();
 
-// Изначально магазин скрыт
-shop.classList.add("hidden");
+// Скрываем магазин по умолчанию
+shop.style.display = "none";
 
 // Клик по кнопке TAP
 btn.addEventListener("click", () => {
-  // Если магазин открыт, клики не учитываем
-  if (!shop.classList.contains("hidden")) return;
+  if (shop.style.display === "block") return; // если магазин открыт, клики не считаются
 
   score++;
   if (score > record) record = score;
@@ -53,12 +52,12 @@ btn.addEventListener("click", () => {
 
 // Открыть магазин
 shopBtn.addEventListener("click", () => {
-  shop.classList.remove("hidden");
+  shop.style.display = "block";
 });
 
 // Закрыть магазин
 closeShop.addEventListener("click", () => {
-  shop.classList.add("hidden");
+  shop.style.display = "none";
 });
 
 // Функция эффектов при покупке
@@ -107,11 +106,10 @@ styleBtns.forEach(button => {
       bonusEl.textContent = "✅ Куплено!";
       setTimeout(() => { bonusEl.textContent = ""; }, 1000);
 
-      // визуальные эффекты
       purchaseEffect(btn);
 
       // закрываем магазин после покупки
-      shop.classList.add("hidden");
+      shop.style.display = "none";
 
     } else {
       bonusEl.textContent = "❌ Недостаточно монет!";
